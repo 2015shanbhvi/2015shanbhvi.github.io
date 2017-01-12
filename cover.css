@@ -124,7 +124,8 @@ body {
 
 .jumbotron{
 	
-	background-color: transparent !important;
+	background-color: transparent;
+	background-color: #A05F5F;
 
 }
 
