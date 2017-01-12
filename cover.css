@@ -126,9 +126,10 @@ body {
 	
 /*	background-color: transparent; */
 	background-color: #A05F5F transparent;
+}
+
+.jumbotron .bg {
 	opacity: 0.10;
-
-
 }
 
 
