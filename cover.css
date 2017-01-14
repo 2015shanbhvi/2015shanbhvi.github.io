@@ -1,97 +1,32 @@
- */
-
-/* Links */
-a,
-a:focus,
-a:hover {
-  color: #fff;
-}
-
-/* Custom default button */
-.btn-default,
-.btn-default:hover,
-.btn-default:focus {
-  color: #333;
-  text-shadow: none; /* Prevent inheritance from `body` */
-  background-color: #fff;
-  border: 1px solid #fff;
-}
-
-
 /*
- * Base structure
+ * POSITIONING
  */
 
-html,
-body {
+div.top_padding{
+	padding-top: 10px;
+}
+
+p.font_helvetica{
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+
+p.header{
+	padding: 0;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+p.bottom_note{
+	text-align: center;
+	color: purple;
+}
+
+footer{
+	position:fixed;
+	bottom: 0;
+	left: 0;
 	width: 100%;
-	height: 100%;
-      background-image: url("space1_background.jpg");	
-	background-size: cover;
-
-}
-/*
- * Cover
- */
-
-.cover {
-  padding: 0 20px;
-}
-.cover .btn-lg {
-  padding: 10px 20px;
-  font-weight: bold;
-}
-
-.jumbotron{
-	
-/*	background-color: transparent; */
-	background-color: #A05F5F transparent;
-}
-
-
-
-
-/*
- * Footer
- */
-
-.footer {
-  color: #999; /* IE8 proofing */
-  color: rgba(255,255,255,.5);
-	vertical-align: middle;
-}
-
-
-/*
- * Affix and center
- */
-
-@media (min-width: 768px) {
-  /* Pull out the header and footer */
-  .masthead {
-    position: fixed;
-    top: 0;
-  }
-  .footer {
-    position: fixed;
-    bottom: 0;
-  }
-  /* Start the vertical centering */
-  .site-wrapper-inner {
-    vertical-align: middle;
-  }
-  /* Handle the widths */
-  .masthead,
-  .mastfoot,
-  .cover-container {
-    width: 100%; /* Must be percentage or pixels for horizontal alignment */
-  }
-}
-
-@media (min-width: 992px) {
-  .masthead,
-  .mastfoot,
-  .cover-container {
-    width: 700px;
-  }
+	padding-bottom: 5px;
 }
