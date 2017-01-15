@@ -2,6 +2,11 @@
  * POSITIONING
  */
 
+.center{
+	text-align: center;
+
+}
+
 div.top_padding{
 	padding-top: 10px;
 }
@@ -23,6 +28,11 @@ p.bottom_note{
 	color: purple;
 }
 
+
+
+.glyphicon {
+	font-size: 20px;
+}
 footer{
 	position:fixed;
 	bottom: 0;
