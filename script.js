@@ -3,4 +3,5 @@ function myFunction() {
 }
 
 
-var name = prompt("What's your name?");
+//var name = prompt("What's your name?");
+//prompt("What is your age" name);
