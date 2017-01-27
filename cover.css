@@ -1,0 +1,45 @@
+/* First div */
+
+.center{
+  margin: auto;
+  text-align: center;
+  width: 50%;
+  border:5px
+}
+
+.top_padding{
+  padding-top: 15px;
+}
+
+#rounded {
+    border-radius: 25px;
+    padding: 20px;
+    width: auto;
+    height: auto;
+}
+
+
+/* Color and font divs */
+.purple{
+  background-color: #d7a0ff;
+}
+
+.medium_opaque{
+  opacity: .5;
+}
+
+.green_font{
+  color: #4cff90;
+}
+
+/* Background image */
+
+#bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  /* Preserve aspet ratio */
+  min-width: 100%;
+  min-height: 100%;
+}
