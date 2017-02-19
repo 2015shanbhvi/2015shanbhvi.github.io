@@ -1,10 +1,18 @@
+/*Debugging*/
+.border{
+  border:2px solid black;
+}
+
+
 /* First div */
 
 .center{
   margin: auto;
   text-align: center;
   width: 50%;
-  border:5px
+  padding-bottom: 5px;
+  padding-top: 5px;
+  /*border:5px*/
 }
 
 .top_padding{
@@ -20,8 +28,8 @@
 
 
 /* Color and font divs */
-.purple{
-  background-color: #d7a0ff;
+.grey{
+  background-color: #ffffff;
 }
 
 .medium_opaque{
@@ -29,7 +37,7 @@
 }
 
 .green_font{
-  color: #4cff90;
+  color: #ffffff;
 }
 
 /* Background image */
