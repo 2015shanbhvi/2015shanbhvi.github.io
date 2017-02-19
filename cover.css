@@ -1,6 +1,6 @@
 /*Debugging*/
 .border{
-  border:2px solid black;
+  border: 1px solid black;
 }
 
 
@@ -28,17 +28,16 @@
 
 
 /* Color and font divs */
-.grey{
-  background-color: #ffffff;
+.foodie-color{
+
+  color: #1e123d;
 }
 
 .medium_opaque{
   opacity: .5;
 }
 
-.green_font{
-  color: #ffffff;
-}
+
 
 /* Background image */
 
