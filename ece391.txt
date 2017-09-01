@@ -1,4 +1,7 @@
 testing
 change one
+<<<<<<< HEAD
 change two
 change three
+=======
+>>>>>>> parent of 8206553... change two
