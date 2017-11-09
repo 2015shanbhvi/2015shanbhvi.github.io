@@ -1,3 +1,5 @@
+/*
+
 //Chart.js tutorial
 // Our labels along the x-axis
 var years = [1500,1600,1700,1750,1800,1850,1900,1950,1999,2050];
@@ -21,14 +23,14 @@ var myChart = new Chart(ctx, {
   }
 });
 
-
+*/
 
 
 
 
 
 //Particle p;
-
+/*
 void setup() {
   size(640,360);
   p = new Particle(new PVector(width/2,10));
@@ -84,3 +86,4 @@ class Particle {
     }
   }
 }
+*/
