@@ -1,8 +1,10 @@
-<!DOCTYPE html>
 <html>
-
 <head>
-    <script src="../p5.min.js"></script>
+
+
+
+
+      <script src="p5.min.js"></script>
     <!-- Latest compiled and minified AngularJavaScript and Route-->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
@@ -47,17 +49,39 @@
           <h4 class="black_font"> shanbha2@illinois.edu </h4>
       </div>
       <h5>
-				<p class="center-div">
-					<span class="glyphicon glyphicon-phone" font_helvetica="true"></span>
-				  217-377-7987
-				</p>
+        <p class="center-div">
+          <span class="glyphicon glyphicon-phone" font_helvetica="true"></span>
+          217-377-7987
+        </p>
       </h5>
 
+      <!-- For Solstice interview -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width">
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.js"
+      integrity="sha256-tA8y0XqiwnpwmOIl3SGAcFl2RvxHjA8qp0+1uCGmRmg="
+      crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+<!-- Tic Tac Toe -->
+      <link rel="stylesheet" href="tic_tac_toe.css">
+      <script src= "tic_tac_toe.js"></script>
+      <script type="text/javascript"></script>
 </head>
 
+<body>
 
-  <body>
-<!-- ===========Scripts========== -->
+
+
+
+
+
+      <!-- ===========Scripts========== -->
   <!-- ========== for fade-in fade-out animations for divs -->
       <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
       <script>
@@ -67,40 +91,82 @@
   <!--===============================-->
     <div data-aos="fade-up" data-aos-delay="100" data-aos-duration="20000" >
       <div class="center-div small-width">
-        <div class="border" id="rounded">
-          <A HREF="myfoodie/index.html"> <h2 class = "foodie-color">Foodie</h2> </A>
-        </div>
+        <!--<div class="border" id="rounded">-->
+          <u><A HREF="myfoodie/index.html"> <h2 class = "foodie-color">Foodie</h2> </A></u>
+        <!--</div>-->
       </div>
     </div>
 
 <!-- Spacing between divs -->
     <div data-aos="fade-up" data-aos-delay="100" data-aos-duration="20000" >
-      <div class=" center-div small-width"><!--first_div_parent-->
-      <div class="first_div" id="rounded">
-          <a href="Resume.pdf"> <h2 class = "foodie-color">Resume</h2> </a>
-      </div>
+      <div class=" center-div" style="margin: auto; width: 50%;"><!--first_div_parent-->
+          <u><a href="Resume.pdf"> <h2 class = "foodie-color">Résumé</h2> </a></u>
+     
     </div>
     </div>
-  <!--===============================-->
-  <!-- To put the chart here -->
-  <canvas id="myChart" width="900" height="900"></canvas>
-
-  </body>
+<br>
+<br>
+<br>
 
 
+  <div data-aos="fade-up" data-aos-delay="100" data-aos-duration="20000" >
+    <div class=" center-div" style="margin: auto; width: 50%;">
+      <h2 class = "foodie-color">Tic Tac Toe</h2>
+    </div>
+  </div>
+
+
+<div data-aos="fade-up" data-aos-delay="100" data-aos-duration="20000" >
+  
+</div>
+
+
+<br>
+<br>
+<br>
 
 
 
-
-	  <!-- ========================================================================== -->
+        <!-- ========================================================================== -->
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!--<script src="../../dist/js/bootstrap.min.js"></script>-->
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <!--<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>-->
 
+
+
+
+
+
+
+
+
+
+</body>
 </html>
+<!--<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+<div class="tictactoe">
+<div class="player">
+Player 1
+
+<div class="player-points" id="player1">
+0
+</div>
+</div>
+
+<table id="game" class="board">
+</table>
+
+<div class="player">
+Player 2
+<div id="player2" class="player-points">0</div>
+</div>
+
+<div class="clear"></div>
+</div>-->
