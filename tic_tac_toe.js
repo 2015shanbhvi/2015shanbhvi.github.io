@@ -92,9 +92,9 @@ function draw_Board()
             var score = function()
             {
                 num_moves++;
-                var isWin = checkWinner();
-
-                if (isWin)
+                
+                var inProgress = 0;
+                if (inProgress)//if not in progress then end the game
                 {
                     if(currentPlayer == 0)
                         points1++;
@@ -108,12 +108,14 @@ function draw_Board()
                     draw_Board();
                 }
 
-                else
+                else//game is still in progress and switch players
                 {
-                    if (currentPlayer == 0)
-                        currentPlayer = 1;
-                    else
+
+                    //switch players
+                    if (currentPlayer == 1)
                         currentPlayer = 0;
+                    else
+                        currentPlayer = 1;
                     this.removeEventListener('click', arguments.callee);
                 }
             };
@@ -157,66 +159,12 @@ function erasePreviousBoard(num){
 function reset()
 {
     currentPlayer = 0;
-    X_Player_Positions = new Array();
+    X_Player_Positions = new Array();//reallocate two new arrays
+    //for player x and player y boards
     Y_Player_Positions = new Array();
 }
 
 
-function checkWinner() {
-    // check if current player has a winning hand
-    // only stsrt checking when player x has size number of selections
-    var win = false;
-    var playerSelections = new Array();
-
-    if (currentPlayer == 0)
-        playerSelections = X_Player_Positions;
-    else
-  playerSelections = Y_Player_Positions;
-    
-    if (playerSelections.length >= size) 
-    {
-        // check if any 'winning_positions_array' are also in your selections
-        
-        for (i = 0; i < winning_positions_array.length; i++) 
-        {
-            var sets = winning_positions_array[i];  // winning hand
-            var setFound = true;
-            
-            for (r = 0; r < sets.length; r++) 
-            {
-                // check if number is in current players hand
-                // if not, break, not winner
-                var found = false;
-                
-                // players hand
-                for (s = 0; s < playerSelections.length; s++) 
-                {
-                    if (sets[r] == playerSelections[s]) 
-                    {
-                        found = true;
-                        break;
-                    }
-                }
-
-                // value not found in players hand
-                // not a valid set, move on
-                if (found == false) 
-                {
-                    setFound = false;
-                    break;
-                }
-            }
-
-            if (setFound == true) 
-            {
-                win = true;
-                break;
-            }
-        }
-    }
-
-    return win;
-} 
 
 window.onload = draw_Board;//draw the board
 
