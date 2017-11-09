@@ -50,11 +50,14 @@ function draw_Board()
     for(i = 0; i < size; i++)
     {//for each column
 
-        var num_rows = document.createElement("tr");
+        //create table row element
+        var num_rows = document.createElement("TR");
         for(j = 0; j < size; j++)
         {
 
-            var num_columns = document.createElement("td");
+
+            //create table data element
+            var num_columns = document.createElement("TD");
             
             num_columns.id = counter;
             //num_columns.innerHTML = counter;
