@@ -47,8 +47,6 @@ function draw_Board()
         var j = 0;
         while(j < 3)
         {
-
-
             //create table data element
             var num_columns = document.createElement("TD");
             
@@ -170,27 +168,29 @@ function checkWinner() {
         while(i < 8)//there are eight winning positions
         {
             var win_match = true;//mark as true first
-            for (r = 0; r < winning_positions_array[i].length; r++) 
+            var j = 0;
+            while(j < 3)//there are three spots to check for each winning position array
             {
-
                 var win_match_flag = false;
                 
                 // players hand
-                for (s = 0; s < playerSelections.length; s++) 
+                //for (s = 0; s < playerSelections.length; s++) 
+                var k = 0;
+                while(k < 3)
                 {
-                    if (winning_positions_array[i][r] == playerSelections[s]) 
+                    if (winning_positions_array[i][j] == playerSelections[k]) 
                     {
                         win_match_flag = true;
                         break;
                     }
+                    k++;
                 }
-
-               
                 if (win_match_flag == false) 
                 {
                     win_match = false;
                     break;
                 }
+                j++;
             }
             //if we have found a winning array
             if (win_match == true) 
