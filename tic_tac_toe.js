@@ -26,7 +26,7 @@ var size = 3;
 function draw_Board() 
 {
     var theGrid = document.getElementById("tic");
-    var counter = 1;
+    var count = 1;
 
 
 //tr, td, handler = draw board
@@ -47,11 +47,12 @@ function draw_Board()
         var j = 0;
         while(j < 3)
         {
+            
             //create table data element
             var num_columns = document.createElement("TD");
             
-            num_columns.id = counter;
-            //num_columns.innerHTML = counter;
+            num_columns.id = count;
+            //num_columns.innerHTML = count;
 
             
 
@@ -59,7 +60,7 @@ function draw_Board()
             //num_columns.addEventListener('click', score);
 
             num_rows.appendChild(num_columns);
-            counter++;
+            count++;
             j++;
 
         }
