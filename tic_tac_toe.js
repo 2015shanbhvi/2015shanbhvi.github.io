@@ -11,7 +11,7 @@ var  winning_positions_array= new Array(); //array to hold the winning indices
     winning_positions_array.push([7, 8, 9]);
 
 var  X_Player_Positions= new Array(); 
-var Y_Player_Positions = new Array();
+var O_Player_Positions = new Array();
 
 
 
@@ -45,8 +45,6 @@ function draw_Board()
     }
    
 
-    
-
     for(i = 0; i < size; i++)
     {//for each column
 
@@ -62,7 +60,31 @@ function draw_Board()
             num_columns.id = counter;
             //num_columns.innerHTML = counter;
 
-            var display_players = function()
+            
+
+            num_columns.addEventListener('click', display_players);
+            //num_columns.addEventListener('click', score);
+
+            num_rows.appendChild(num_columns);
+            counter++;
+        }
+        theGrid.appendChild(num_rows);
+    }
+}
+
+
+function erasePreviousBoard(num){
+   var theGrid = document.getElementById("tic");
+     
+    while (theGrid.hasChildNodes() != 0) 
+    {
+        theGrid.removeChild(theGrid.firstChild);
+    }
+
+}
+
+
+var display_players = function()
             {
 
                 if (currentPlayer == 0) 
@@ -76,27 +98,28 @@ function draw_Board()
                     X_Player_Positions.sort(function(a, b) { return a - b });
                 }
 
-
-
-
                 else 
                 {
                     //draw the O character for the O player
                     this.innerHTML = "<b>O</b>";
-                    Y_Player_Positions.push(parseInt(this.id));
+                    O_Player_Positions.push(parseInt(this.id));
                      //use the compare function 
                     //sort in ascending order
-                    Y_Player_Positions.sort(function(a, b) { return a - b });
+                    O_Player_Positions.sort(function(a, b) { return a - b });
                 }
                 
                 score();
             };
 
-            var score = function()
+
+
+var score = function()
             {
                 num_moves++;
                 
-                var inProgress = 0;
+                //var win_flag = checkWinner();
+
+                var inProgress = checkWinner();
                 if (inProgress)//if not in progress then end the game
                 {
                     if(currentPlayer == 0)
@@ -124,48 +147,74 @@ function draw_Board()
             };
 
 
-            num_columns.addEventListener('click', display_players);
-            //num_columns.addEventListener('click', score);
-
-            num_rows.appendChild(num_columns);
-            counter++;
-
-
-        }
-        theGrid.appendChild(num_rows);
-
-
-    }
-
-
-
-}
-
-
-function erasePreviousBoard(num){
-   var theGrid = document.getElementById("tic");
-        //for(i = 0; i < num; i++)
-        //{
-        //    console.log(num);
-            theGrid.removeChild(theGrid.firstChild);
-            //theGrid.removeChild(theGrid.firstChild);
-            //theGrid.removeChild(theGrid.firstChild);
-        //}
-        
-    
-}
-
-
-
-
-
 function reset()
 {
     currentPlayer = 0;
     X_Player_Positions = new Array();//reallocate two new arrays
     //for player x and player y boards
-    Y_Player_Positions = new Array();
+    O_Player_Positions = new Array();
 }
+
+
+
+function checkWinner() {
+    // check if current player has a winning hand
+    // only stsrt checking when player x has size number of selections
+    var win = false;
+    var playerSelections = new Array();
+
+    if (currentPlayer == 0)
+        playerSelections = X_Player_Positions;
+    else
+        playerSelections = O_Player_Positions;
+    
+    if (playerSelections.length >= size) 
+    {
+        // check if any 'winning_positions_array' are also in your selections
+        
+        for (i = 0; i < winning_positions_array.length; i++) 
+        {
+            var sets = winning_positions_array[i];  // winning hand
+            var setFound = true;
+            
+            for (r = 0; r < sets.length; r++) 
+            {
+                // check if number is in current players hand
+                // if not, break, not winner
+                var found = false;
+                
+                // players hand
+                for (s = 0; s < playerSelections.length; s++) 
+                {
+                    if (sets[r] == playerSelections[s]) 
+                    {
+                        found = true;
+                        break;
+                    }
+                }
+
+                // value not found in players hand
+                // not a valid set, move on
+                if (found == false) 
+                {
+                    setFound = false;
+                    break;
+                }
+            }
+
+            if (setFound == true) 
+            {
+                win = true;
+                break;
+            }
+        }
+    }
+
+    return win;
+} 
+
+
+
 
 
 
