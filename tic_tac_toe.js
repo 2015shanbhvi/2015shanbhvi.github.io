@@ -23,12 +23,6 @@ var points2 = 0;    // player 2 points
 var size = 3;
 
 
-
-
-
-   
-
-
 function draw_Board() 
 {
     var theGrid = document.getElementById("tic");
@@ -40,17 +34,18 @@ function draw_Board()
     {
 
          erasePreviousBoard(3);
-        // erasePreviousBoard(3);
-         //erasePreviousBoard(3);
+
     }
    
-
-    for(i = 0; i < size; i++)
+    var i = 0;
+    while(i < 3)//there are three rows
+   // for(i = 0; i < size; i++)
     {//for each column
 
         //create table row element
         var num_rows = document.createElement("TR");
-        for(j = 0; j < size; j++)
+        var j = 0;
+        while(j < 3)
         {
 
 
@@ -67,8 +62,11 @@ function draw_Board()
 
             num_rows.appendChild(num_columns);
             counter++;
+            j++;
+
         }
         theGrid.appendChild(num_rows);
+        i++;
     }
 }
 
@@ -116,8 +114,6 @@ var display_players = function()
 var score = function()
             {
                 num_moves++;
-                
-                //var win_flag = checkWinner();
 
                 var inProgress = checkWinner();
                 if (inProgress)//if not in progress then end the game
@@ -158,8 +154,7 @@ function reset()
 
 
 function checkWinner() {
-    // check if current player has a winning hand
-    // only stsrt checking when player x has size number of selections
+
     var win = false;
     var playerSelections = new Array();
 
@@ -170,51 +165,45 @@ function checkWinner() {
     
     if (playerSelections.length >= size) 
     {
-        // check if any 'winning_positions_array' are also in your selections
-        
-        for (i = 0; i < winning_positions_array.length; i++) 
+
+        i = 0;
+        while(i < 8)//there are eight winning positions
         {
-            var sets = winning_positions_array[i];  // winning hand
-            var setFound = true;
-            
-            for (r = 0; r < sets.length; r++) 
+            var win_match = true;//mark as true first
+            for (r = 0; r < winning_positions_array[i].length; r++) 
             {
-                // check if number is in current players hand
-                // if not, break, not winner
-                var found = false;
+
+                var win_match_flag = false;
                 
                 // players hand
                 for (s = 0; s < playerSelections.length; s++) 
                 {
-                    if (sets[r] == playerSelections[s]) 
+                    if (winning_positions_array[i][r] == playerSelections[s]) 
                     {
-                        found = true;
+                        win_match_flag = true;
                         break;
                     }
                 }
 
-                // value not found in players hand
-                // not a valid set, move on
-                if (found == false) 
+               
+                if (win_match_flag == false) 
                 {
-                    setFound = false;
+                    win_match = false;
                     break;
                 }
             }
-
-            if (setFound == true) 
+            //if we have found a winning array
+            if (win_match == true) 
             {
                 win = true;
                 break;
             }
+            i++;
         }
     }
 
     return win;
 } 
-
-
-
 
 
 
