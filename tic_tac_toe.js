@@ -47,14 +47,15 @@ function draw_Board()
         var j = 0;
         while(j < 3)
         {
-            
+
             //create table data element
             var num_columns = document.createElement("TD");
             
             num_columns.id = count;
             //num_columns.innerHTML = count;
 
-            
+            //display_players();
+            //score();
 
             num_columns.addEventListener('click', display_players);
             //num_columns.addEventListener('click', score);
@@ -105,13 +106,6 @@ var display_players = function()
                     O_Player_Positions.sort(function(a, b) { return a - b });
                 }
                 
-                score();
-            };
-
-
-
-var score = function()
-            {
                 num_moves++;
 
                 var inProgress = checkWinner();
@@ -148,6 +142,9 @@ function reset()
     X_Player_Positions = new Array();//reallocate two new arrays
     //for player x and player y boards
     O_Player_Positions = new Array();
+    playerSelections = new Array();//clear the position aray
+    //so that we can play more than once
+    
 }
 
 
@@ -162,13 +159,14 @@ function checkWinner() {
     else
         playerSelections = O_Player_Positions;
     
-    if (playerSelections.length >= size) 
+    if (playerSelections.length >= size) //if we have at least three moves
     {
 
         i = 0;
         while(i < 8)//there are eight winning positions
         {
             var win_match = true;//mark as true first
+            var win_pos_array = winning_positions_array[i];
             var j = 0;
             while(j < 3)//there are three spots to check for each winning position array
             {
@@ -179,7 +177,8 @@ function checkWinner() {
                 var k = 0;
                 while(k < 3)
                 {
-                    if (winning_positions_array[i][j] == playerSelections[k]) 
+                    //if (winning_positions_array[i][j] == playerSelections[k]) 
+                    if ( win_pos_array[j]== playerSelections[k])
                     {
                         win_match_flag = true;
                         break;
