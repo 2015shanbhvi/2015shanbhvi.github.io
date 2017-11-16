@@ -142,24 +142,85 @@ function reset()
     X_Player_Positions = new Array();//reallocate two new arrays
     //for player x and player y boards
     O_Player_Positions = new Array();
-    playerSelections = new Array();//clear the position aray
+    cur_player_board = new Array();//clear the position aray
     //so that we can play more than once
-    
+
 }
 
+function checkWinner() {
+    // check if current player has a winning hand
+    // only stsrt checking when player x has size number of selections
+    var win = false;
+    var cur_player_board = new Array();
 
+    if (currentPlayer == 0)
+        cur_player_board = X_Player_Positions;
+    else
+        cur_player_board = O_Player_Positions;
+    
+    if (cur_player_board.length >= 3) 
+    {
+        // check if any 'winning_positions_array' are also in your selections
+        
+        //for (i = 0; i < 8; i++) 
+        var i = 0;
+        while(i < 8)
+        {
+            var sets = winning_positions_array[i];  // winning hand
+            var setFound = true;
+            
+            //for (r = 0; r < 3; r++) 
+            var j = 0;
+            while(j < 3)
+            {
+                // check if number is in current players hand
+                // if not, break, not winner
+                var found = false;
+                
+                // players hand
+                for (s = 0; s < cur_player_board.length; s++) 
+                {
+                    if (sets[j] == cur_player_board[s]) 
+                    {
+                        found = true;
+                        break;
+                    }
+                }
 
+                // value not found in players hand
+                // not a valid set, move on
+                if (found == false) 
+                {
+                    setFound = false;
+                    break;
+                }
+                j++;
+            }
+
+            if (setFound == true) 
+            {
+                win = true;
+                break;
+            }
+
+            i++;
+        }
+    }
+    return win;
+} 
+
+/*
 function checkWinner() {
 
     var win = false;
-    var playerSelections = new Array();
+    var cur_player_board = new Array();
 
     if (currentPlayer == 0)
-        playerSelections = X_Player_Positions;
+        cur_player_board = X_Player_Positions;
     else
-        playerSelections = O_Player_Positions;
+        cur_player_board = O_Player_Positions;
     
-    if (playerSelections.length >= size) //if we have at least three moves
+    if (cur_player_board.length >= size) //if we have at least three moves
     {
 
         i = 0;
@@ -173,12 +234,12 @@ function checkWinner() {
                 var win_match_flag = false;
                 
                 // players hand
-                //for (s = 0; s < playerSelections.length; s++) 
+                //for (s = 0; s < cur_player_board.length; s++) 
                 var k = 0;
                 while(k < 3)
                 {
-                    //if (winning_positions_array[i][j] == playerSelections[k]) 
-                    if ( win_pos_array[j]== playerSelections[k])
+                    //if (winning_positions_array[i][j] == cur_player_board[k]) 
+                    if ( win_pos_array[j]== cur_player_board[k])
                     {
                         win_match_flag = true;
                         break;
@@ -190,11 +251,13 @@ function checkWinner() {
                     win_match = false;
                     break;
                 }
+
+
                 j++;
             }
             //if we have found a winning array
             if (win_match == true) 
-            {
+            {   
                 win = true;
                 break;
             }
@@ -204,7 +267,7 @@ function checkWinner() {
 
     return win;
 } 
-
+*/
 
 
 window.onload = draw_Board;//draw the board
