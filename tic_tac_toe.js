@@ -160,44 +160,39 @@ function checkWinner() {
     
     if (cur_player_board.length >= 3) 
     {
-        // check if any 'winning_positions_array' are also in your selections
-        
-        //for (i = 0; i < 8; i++) 
+
         var i = 0;
-        while(i < 8)
+        while(i < 8)//for each possible winning array
         {
-            var sets = winning_positions_array[i];  // winning hand
-            var setFound = true;
-            
-            //for (r = 0; r < 3; r++) 
+            var sets = winning_positions_array[i];//let's compare row by row
+            var found_flag = true;
+        
+        
+   
             var j = 0;
-            while(j < 3)
+            while(j < 3)//for each element in  the winning pos array
             {
-                // check if number is in current players hand
-                // if not, break, not winner
-                var found = false;
+                var match  = false;//havent match  the winning match yet
                 
-                // players hand
-                for (s = 0; s < cur_player_board.length; s++) 
+
+                for (s = 0; s < cur_player_board.length; s++) //for each element of the player's board
                 {
                     if (sets[j] == cur_player_board[s]) 
                     {
-                        found = true;
+                        match  = true;
                         break;
                     }
                 }
 
-                // value not found in players hand
-                // not a valid set, move on
-                if (found == false) 
+                if (match  == false) 
                 {
-                    setFound = false;
+                    found_flag = false;
                     break;
                 }
                 j++;
             }
 
-            if (setFound == true) 
+            if (found_flag == true) 
             {
                 win = true;
                 break;
@@ -209,65 +204,6 @@ function checkWinner() {
     return win;
 } 
 
-/*
-function checkWinner() {
-
-    var win = false;
-    var cur_player_board = new Array();
-
-    if (currentPlayer == 0)
-        cur_player_board = X_Player_Positions;
-    else
-        cur_player_board = O_Player_Positions;
-    
-    if (cur_player_board.length >= size) //if we have at least three moves
-    {
-
-        i = 0;
-        while(i < 8)//there are eight winning positions
-        {
-            var win_match = true;//mark as true first
-            var win_pos_array = winning_positions_array[i];
-            var j = 0;
-            while(j < 3)//there are three spots to check for each winning position array
-            {
-                var win_match_flag = false;
-                
-                // players hand
-                //for (s = 0; s < cur_player_board.length; s++) 
-                var k = 0;
-                while(k < 3)
-                {
-                    //if (winning_positions_array[i][j] == cur_player_board[k]) 
-                    if ( win_pos_array[j]== cur_player_board[k])
-                    {
-                        win_match_flag = true;
-                        break;
-                    }
-                    k++;
-                }
-                if (win_match_flag == false) 
-                {
-                    win_match = false;
-                    break;
-                }
-
-
-                j++;
-            }
-            //if we have found a winning array
-            if (win_match == true) 
-            {   
-                win = true;
-                break;
-            }
-            i++;
-        }
-    }
-
-    return win;
-} 
-*/
 
 
 window.onload = draw_Board;//draw the board
