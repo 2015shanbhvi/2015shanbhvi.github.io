@@ -48,3 +48,12 @@ ol, ul {
 .game-info {
   margin-left: 20px;
 }
+
+.center-div{
+  margin: auto;
+  text-align: center;
+
+  padding-bottom: 5px;
+  padding-top: 5px;
+  /*border:5px*/
+}
