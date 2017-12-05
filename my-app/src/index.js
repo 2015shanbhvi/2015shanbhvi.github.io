@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+//import './index.css';
+import './tic_tac_toe.css';
 
 //Tic Tac Toe
 
