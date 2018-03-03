@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+<style>
+
+.warningText{
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+}
+.warningHr{
+  align: center;
+  width: 95%;
+}
+
+th {
+  border: 2px solid whitesmoke;
+  text-align: left;
+}
+
+.tableLabel{
+  width: 60%;
+
+}
+
+
+input[type=text] {
+    width: 98%;
+    padding: 6px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+input[type=text]:focus {
+    border: 3px solid #555;
+}
+
+.textField{
+  align: right;
+}
+
+.select{
+    overflow: visible;
+    width: 215px;
+    height: 33px;
+}
+
+
+
+.first_block{
+  width: 100px;
+	height: 100px;
+  background-color: #F7F70C;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+}
+
+second_block{
+  width: 100px;
+	height: 100px;
+	background-color: #C552B2;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+}
+
+.third_block{
+  width: 100px;
+	height: 100px;
+	background-color: #52F86E;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+}
+
+
+#button-black {
+  background-color: black;
+  border-color: black;
+}
+
+div{
+
+  -webkit-user-select: none; /* Chrome/Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+ */
+}
+
+#instruction_one{
+  padding-top: 10px;
+  text-align: center;
+  font-size: 20px;
+
+}
+
+
+</style>
+
+<!--trying out milligram CDN UI framework -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.css">
+
+</head>
+<body>
+
+
+
+
+  <div id="outer" style=" margin: auto; background-color: #992600; width: 600px; height: 437px;
+  padding-top: 15px;">
+    <div id="title" style="padding-bottom: 8px;">
+      <text style="color: whitesmoke; font-size: 20px; padding-left: 15px">
+         <text  id="javascript">milligram.io <text>
+      </text>
+    </div>
+    <div id="middle" style="margin: auto; background-color: #E3F8FF;  width: 598px; height: 380px;
+      margin-left: 1px; padding-top: 15px;">
+
+      <div id="instruction_one">
+        Turn these colors dull
+      </div>
+
+      <div style="margin: auto; width: 90%; padding-left: 5%; padding-right: 5%;">
+        <hr>
+            <span>
+                <div id="first_block" class ="first_block" onclick="firstFunction()" style="width: 30%; height: 100px; display: inline-block;">
+
+                </div>
+
+                <div id="second_block" class ="second_block" onclick="secondFunction()" style="width: 30%; height: 100px;display: inline-block;">
+
+                </div>
+                <div id="third_block" class ="third_block" onclick="thirdFunction()" style="width: 30%; height: 100px;display: inline-block;">
+
+                </div>
+
+
+            </span>
+
+        <hr>
+      </div>
+
+      <div id="submissionFields">
+        <table style="width: 98%; padding-left: 2%;">
+        </table>
+      </div>
+
+      <div id="buttons" style="padding-top: 10px; padding-left: 70%;">
+        <button  id = "button-black" onclick="doneFunction()"> Done </button>
+      </div>
+    </div>
+  </div>
+
+<script>
+
+
+var isdone1;
+var isdone2;
+var isdone3;
+var isgreen = 0;
+
+//function that toggles the title visible/invisible
+function doneFunction() {
+  var isdone_total = isdone1 + isdone2 + isdone3;
+  var green_button = document.getElementById("button-black");
+
+  console.log(isgreen);
+
+  if(isgreen == 1)
+  {  green_button.onclick = function(){
+      //console.log("clicked when the button changed to green");
+      isgreen += 1;
+      console.log(isgreen);
+      document.getElementById("button-black").innerHTML = ">>>";
+    }
+  }
+
+
+  if(isdone_total == 0)
+  {
+    console.log("you are done");
+
+    //now move on to the next panel
+    document.getElementById("button-black").innerHTML = "Correct!";
+    document.getElementById("button-black").style.backgroundColor = "#00e640";
+    isgreen = 1;
+
+  }
+  else {
+    console.log("not done");
+  }
+
+
+}
+
+function firstFunction(){
+  var first_block = document.getElementById("first_block");
+  isdone1 = 0;
+  toggle = false;
+
+  first_block.onclick = function(){
+    toggle = !toggle;
+    first_block.style.background = toggle? "#F7F70C": "#e9d460";
+    isdone1 = 1;
+  }
+
+  first_block.style.background = "#e9d460";
+}
+
+function secondFunction(){
+  var second_block = document.getElementById("second_block");
+  isdone2 = 0;
+  toggle2 = false;
+
+  second_block.onclick = function(){
+    toggle2 = !toggle2;
+    second_block.style.background = toggle2? "#C552B2": "#aea8d3";
+    isdone2 = 1;
+  }
+
+  second_block.style.background = "#aea8d3";
+
+}
+
+function thirdFunction(){
+  var third_block = document.getElementById("third_block");
+  isdone3 = 0;
+  toggle3 = false;
+
+  third_block.onclick = function(){
+    toggle3 = !toggle3;
+    third_block.style.background = toggle3? "#52F86E": "#87d37c";
+    isdone3 = 0;
+  }
+
+  third_block.style.background = "#87d37c";
+
+}
+
+
+</script>
+
+
+</body>
+</html>

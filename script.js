@@ -1,3 +1,93 @@
+
+var isdone1;
+var isdone2;
+var isdone3;
+var isgreen = 0;
+
+//function that toggles the title visible/invisible
+function doneFunction() {
+  var isdone_total = isdone1 + isdone2 + isdone3;
+  var green_button = document.getElementById("button-black");
+
+  console.log(isgreen);
+
+  if(isgreen == 1)
+  {  green_button.onclick = function(){
+      //console.log("clicked when the button changed to green");
+      isgreen += 1;
+      console.log(isgreen);
+      document.getElementById("button-black").innerHTML = ">>>";
+    }
+  }
+
+
+  if(isdone_total == 0)
+  {
+    console.log("you are done");
+
+    //now move on to the next panel
+    document.getElementById("button-black").innerHTML = "Correct!";
+    document.getElementById("button-black").style.backgroundColor = "#00e640";
+    isgreen = 1;
+
+  }
+  else {
+    console.log("not done");
+  }
+
+
+}
+
+function firstFunction(){
+  var first_block = document.getElementById("first_block");
+  isdone1 = 0;
+  toggle = false;
+
+  first_block.onclick = function(){
+    toggle = !toggle;
+    first_block.style.background = toggle? "#F7F70C": "#e9d460";
+    isdone1 = 1;
+  }
+
+  first_block.style.background = "#e9d460";
+}
+
+function secondFunction(){
+  var second_block = document.getElementById("second_block");
+  isdone2 = 0;
+  toggle2 = false;
+
+  second_block.onclick = function(){
+    toggle2 = !toggle2;
+    second_block.style.background = toggle2? "#C552B2": "#aea8d3";
+    isdone2 = 1;
+  }
+
+  second_block.style.background = "#aea8d3";
+
+}
+
+function thirdFunction(){
+  var third_block = document.getElementById("third_block");
+  isdone3 = 0;
+  toggle3 = false;
+
+  third_block.onclick = function(){
+    toggle3 = !toggle3;
+    third_block.style.background = toggle3? "#52F86E": "#87d37c";
+    isdone3 = 0;
+  }
+
+  third_block.style.background = "#87d37c";
+
+}
+
+
+
+
+
+
+
 /*
 
 //Chart.js tutorial
